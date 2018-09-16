@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.skyfervor.counter.dao.CountMapper">
+    <select id="query" resultType="com.skyfervor.counter.model.entity.CountEntity">
+		SELECT
+		`key`,
+		`count`
+		FROM count
+		WHERE
+		`key` = #{key}
+	</select>
+
+    <insert id="insertOrUpdate" parameterType="com.skyfervor.counter.model.entity.CountEntity">
+		INSERT INTO `count` (
+			`key`,
+			`count`
+		) VALUES (
+			#{key},
+			#{count}
+		)
+		ON DUPLICATE KEY UPDATE
+		`count` = VALUES(`count`)
+	</insert>
+</mapper>
