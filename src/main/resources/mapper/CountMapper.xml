@@ -3,18 +3,22 @@
 <mapper namespace="com.skyfervor.counter.dao.CountMapper">
     <select id="query" resultType="com.skyfervor.counter.model.entity.CountEntity">
 		SELECT
+		source,
 		`key`,
 		`count`
-		FROM count
+		FROM `count`
 		WHERE
-		`key` = #{key}
+		source = #{source}
+		AND `key` = #{key}
 	</select>
 
     <insert id="insertOrUpdate" parameterType="com.skyfervor.counter.model.entity.CountEntity">
 		INSERT INTO `count` (
+			source,
 			`key`,
 			`count`
 		) VALUES (
+			#{source},
 			#{key},
 			#{count}
 		)

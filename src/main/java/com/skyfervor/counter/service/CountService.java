@@ -9,5 +9,5 @@ package com.skyfervor.counter.service;
  */
 public interface CountService {
 
-    boolean addCount(String key);
+    boolean addCount(String source, String key);
 }

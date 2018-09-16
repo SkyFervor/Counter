@@ -4,6 +4,7 @@ import com.skyfervor.counter.service.CountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -20,7 +21,7 @@ public class CountController {
     private CountService countService;
 
     @RequestMapping(value = "/addCount", method = RequestMethod.POST)
-    public boolean addCount(String key) {
-        return countService.addCount(key);
+    public boolean addCount(@RequestParam("source") String source, @RequestParam("key") String key) {
+        return countService.addCount(source, key);
     }
 }

@@ -23,8 +23,9 @@ public class CountServiceTest {
 
     @Test
     public void addCount() {
+        String source = "test";
         String key = "1";
 
-        countService.addCount(key);
+        countService.addCount(source, key);
     }
 }

@@ -24,14 +24,15 @@ public class CountServiceImpl implements CountService {
 
     @Override
     @Transactional
-    public boolean addCount(String key) {
-        if (StringUtils.isEmpty(key)) {
+    public boolean addCount(String source, String key) {
+        if (StringUtils.isEmpty(source) || StringUtils.isEmpty(key)) {
             return false;
         }
 
-        CountEntity entity = countMapper.query(key);
+        CountEntity entity = countMapper.query(source, key);
         if (null == entity) {
             entity = new CountEntity();
+            entity.setSource(source);
             entity.setKey(key);
             entity.setCount(0);
         }

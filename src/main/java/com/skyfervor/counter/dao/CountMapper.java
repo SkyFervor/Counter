@@ -14,7 +14,7 @@ import org.apache.ibatis.annotations.Param;
 @Mapper
 public interface CountMapper {
 
-    CountEntity query(@Param("key") String key);
+    CountEntity query(@Param("source") String source, @Param("key") String key);
 
     int insertOrUpdate(CountEntity entity);
 }

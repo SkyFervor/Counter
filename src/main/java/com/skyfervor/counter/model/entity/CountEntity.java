@@ -12,6 +12,8 @@ import lombok.Data;
 @Data
 public class CountEntity {
 
+    private String source;
+
     private String key;
 
     private long count;
